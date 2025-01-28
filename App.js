@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import Weather from './components/Weather';
 import SearchBar from './components/SearchBar';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 
 const API_KEY = "07128f2330b27a9d253c7ab574067700";
 
@@ -40,7 +42,7 @@ export default function App() {
     if(!loaded) {
         return (
             <View style={styles.container}>
-                <ActivityIndicator color='gray'  size={36} />
+               <ActivityIndicator color='gray' size={hp('5%')} />
             </View>
 
         )
@@ -70,7 +72,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   primaryText: {
-      margin: 20,
+
+      margin: hp('2%'), // Use hp for margin
       fontSize: 28
   }
 });
