@@ -12,7 +12,7 @@ export default function Weather({ weatherData, fetchWeatherData }) {
     const kelvinToCelsius = (temp) => (temp - 273.15).toFixed(2);
 
     useEffect(() => {
-        setBackgroundImage(getBackgroundImg(main));
+        setBackgroundImage(getBackgroundImg(weather.main));
     }, [weatherData]);
 
     function getBackgroundImg(weather) {
@@ -20,6 +20,7 @@ export default function Weather({ weatherData, fetchWeatherData }) {
         if(weather === 'Clear') return sunny
         if(weather === 'Rain') return rainy
         if(weather === 'Haze') return haze
+        if(weather === 'Clouds') return rainy
         return haze;   
     }
 
